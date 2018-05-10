@@ -60,6 +60,11 @@
 
             let tilesCount = Math.ceil(leftSquare / tileSquare);
 
+            if (tilesCount == tilesInBundle) {
+                bundlesCount++;
+                tilesCount = 0;
+            }
+
             document.querySelector('#resultBundles').innerText = bundlesCount;
             document.querySelector('#resultTiles').innerText = tilesCount;
             document.querySelector('#result').style.display = 'block';

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <style>
+        /*input[type=text] {
+            width: 100%;
+        }*/
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 offset-sm-3">
+                <div class="form-group">
+                    Квадраты <br>
+                    <input  type="text" id="square">
+                </div>
+
+
+                <div class="form-group">
+                <label for="square">Квадраты</label>
+                <input type="text" class="form-control" id="square" placeholder="Квадраты">
+              </div>
+
+
+
+    Плиток в пачке <br>
+    <input type="text" id="tilesInBundle"> <br>
+
+    Квадратов в пачке <br>
+    <input type="text" id="bundleSquare"> <br>
+
+    <button onclick="count()">Посчитать</button>
+
+    <br>
+    Нужно <span id="resultBundles"></span> пачек и
+    <span id="resultTiles"></span> плиток
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function count()
+        {
+            let square = document.querySelector('#square').value; 
+            let tilesInBundle = document.querySelector('#tilesInBundle').value;
+            let bundleSquare = document.querySelector('#bundleSquare').value;
+
+            // let bundleSquare = 1.62;
+
+            let bundlesCount = Math.floor(square / bundleSquare);
+
+            let leftSquare = square % bundleSquare;
+
+            let tileSquare = bundleSquare / tilesInBundle;
+
+            let tilesCount = Math.ceil(leftSquare / tileSquare);
+
+            document.querySelector('#resultBundles').innerText = bundlesCount;
+            document.querySelector('#resultTiles').innerText = tilesCount;  
+        }
+    </script>
+</body>
+</html>
